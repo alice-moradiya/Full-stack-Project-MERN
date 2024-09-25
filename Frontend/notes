@@ -3,3 +3,16 @@ vagar aene tu 2 div naa banavi shake
 
 order1 and order 2 class. md: etle medium ke aenathi
  vadhare baaki normal ma small screen mate rehshe
+
+ footer ma uper line add karvi hoy to <hr/> tag
+
+ // react hook(function) to manage navbar state
+
+ (navbar ma) stciky = current state and setstciky chhe ae updated state hoy
+ useeffect thi state change vakhte je effects aave ae batavva. like ahiya navbar
+  scroll kariee tyare dark shadow aave ae.
+
+
+import list from "../../public/list.json"
+aano matlab ke aapde aa freebook ma import karyu chhe to aemathi  .. etle ek dir back .. biji back
+ and aema oublic folder.
