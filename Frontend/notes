@@ -12,6 +12,8 @@ order1 and order 2 class. md: etle medium ke aenathi
  useeffect thi state change vakhte je effects aave ae batavva. like ahiya navbar
   scroll kariee tyare dark shadow aave ae.
 
+cards and freebook ek j directory ma hata so ./cards etle filtermap run notu thatu and data visiblle nota
+
 
 import list from "../../public/list.json"
 aano matlab ke aapde aa freebook ma import karyu chhe to aemathi  .. etle ek dir back .. biji back
