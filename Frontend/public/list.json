@@ -20,14 +20,62 @@
     "name": "Food Book",
     "title": "Food Book",
     "price": 100,
-    "category": "Free",
+    "category": "Fee",
     "image": "https://img.freepik.com/free-vector/stack-colorful-books_1308-171741.jpg?t=st=1726121052~exp=1726124652~hmac=9d52da99f54e6d2d8dd0c1058fa90c383d12e9b95f9f8091f428aa495d55050d&w=900"
   },
   {
     "id": 4,
     "name": "comic Book",
     "title": "comic Book",
+    "price": 0,
+    "category": "Free",
+    "image": "https://img.freepik.com/free-vector/stack-colorful-books_1308-171741.jpg?t=st=1726121052~exp=1726124652~hmac=9d52da99f54e6d2d8dd0c1058fa90c383d12e9b95f9f8091f428aa495d55050d&w=900"
+  },
+  {
+    "id": 5,
+    "name": "Sports Book",
+    "title": "Sports Book",
     "price": 100,
+    "category": "Fee",
+    "image": "https://img.freepik.com/free-vector/stack-colorful-books_1308-171741.jpg?t=st=1726121052~exp=1726124652~hmac=9d52da99f54e6d2d8dd0c1058fa90c383d12e9b95f9f8091f428aa495d55050d&w=900"
+  },
+  {
+    "id": 6,
+    "name": "Ancient History Book",
+    "title": "Ancient History Book",
+    "price": 100,
+    "category": "Fee",
+    "image": "https://img.freepik.com/free-vector/stack-colorful-books_1308-171741.jpg?t=st=1726121052~exp=1726124652~hmac=9d52da99f54e6d2d8dd0c1058fa90c383d12e9b95f9f8091f428aa495d55050d&w=900"
+  },
+  {
+    "id": 7,
+    "name": "Cosmology Book",
+    "title": "Cosmology Book",
+    "price": 0,
+    "category": "Free",
+    "image": "https://img.freepik.com/free-vector/stack-colorful-books_1308-171741.jpg?t=st=1726121052~exp=1726124652~hmac=9d52da99f54e6d2d8dd0c1058fa90c383d12e9b95f9f8091f428aa495d55050d&w=900"
+  },
+  {
+    "id": 8,
+    "name": "Music Book",
+    "title": "Music Book",
+    "price": 0,
+    "category": "Free",
+    "image": "https://img.freepik.com/free-vector/stack-colorful-books_1308-171741.jpg?t=st=1726121052~exp=1726124652~hmac=9d52da99f54e6d2d8dd0c1058fa90c383d12e9b95f9f8091f428aa495d55050d&w=900"
+  },
+  {
+    "id": 9,
+    "name": "Ancient History Book",
+    "title": "Story Book",
+    "price": 0,
+    "category": "Free",
+    "image": "https://img.freepik.com/free-vector/stack-colorful-books_1308-171741.jpg?t=st=1726121052~exp=1726124652~hmac=9d52da99f54e6d2d8dd0c1058fa90c383d12e9b95f9f8091f428aa495d55050d&w=900"
+  },
+  {
+    "id": 10,
+    "name": "Music Book",
+    "title": "Music Book",
+    "price": 0,
     "category": "Free",
     "image": "https://img.freepik.com/free-vector/stack-colorful-books_1308-171741.jpg?t=st=1726121052~exp=1726124652~hmac=9d52da99f54e6d2d8dd0c1058fa90c383d12e9b95f9f8091f428aa495d55050d&w=900"
   }

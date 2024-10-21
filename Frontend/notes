@@ -14,6 +14,7 @@ order1 and order 2 class. md: etle medium ke aenathi
 
 cards and freebook ek j directory ma hata so ./cards etle filtermap run notu thatu and data visiblle nota
 
+home.jsx ma cards.jsx import karva ../components/cards.jsx  ".." agar bija folde ma abd "." same folder ma
 
 import list from "../../public/list.json"
 aano matlab ke aapde aa freebook ma import karyu chhe to aemathi  .. etle ek dir back .. biji back
