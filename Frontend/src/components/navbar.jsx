@@ -37,7 +37,7 @@ function Navbar() {
   const navItems = (
     <>
       <li><a href="/">Home</a></li>
-      <li><a href="/Courses">Course</a></li>
+      <li><a href="/courses">Course</a></li>
       <li><a href="/Contacts">Contact</a></li>
       <li><a>About</a></li>
     </>
