@@ -38,7 +38,7 @@ function Navbar() {
     <>
       <li><a href="/">Home</a></li>
       <li><a href="/Courses">Course</a></li>
-      <li><a>Contact</a></li>
+      <li><a href="/Contacts">Contact</a></li>
       <li><a>About</a></li>
     </>
   );
@@ -62,7 +62,7 @@ function Navbar() {
                 {navItems}
               </ul>
             </div>
-            <a className="text-2xl font-bold cursor-pointer">Bookstore</a>
+            <a href="/" className="text-2xl font-bold cursor-pointer">Bookstore</a>
           </div>
 
           <div className="navbar-end space-x-3">

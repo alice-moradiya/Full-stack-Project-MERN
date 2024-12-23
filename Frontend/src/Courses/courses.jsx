@@ -6,7 +6,7 @@ import Course from "../components/Course.jsx";
 import list from "../../public/list.json";
 
 function courses() {
-    console.log(list);
+    // console.log(list);
   return (
     <>
       <Navbar />
