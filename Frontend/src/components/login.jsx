@@ -49,7 +49,7 @@ function Login() {
                   {...register("password", { required: true })}
                 />
                 <br />
-                {errors.password && <span classNsame="text-sm text-red-500">This field is required</span>}
+                {errors.password && <span className="text-sm text-red-500">This field is required</span>}
               </div>
               {/* button */}
               <div className="flex justify-around mt-4">
