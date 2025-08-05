@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
 
-const bookSchema =mongoose.model({
+const bookSchema =mongoose.Schema({
     name: String,
     price: Number,
     category: String,
     image: String,
-    titile: String,
+    title: String,
 })
 
 const Book = mongoose.model("Book", bookSchema);

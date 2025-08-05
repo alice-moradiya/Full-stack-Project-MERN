@@ -1,15 +1,50 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, replace, useLocation, useNavigate } from "react-router-dom";
 import Login from "./login";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { useAuth } from "../context/AuthProvider";
+// import { Navigate } from "react-router-dom";
 
 function Signup() {
+  const location = useLocation()
+  const navigate = useNavigate()
+  const from= location.state?.from?.pathname || "/"
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const [authUser, setAuthUser] = useAuth();
+  
+  const onSubmit = async(data) => {
+    const userInfo = {
+      fullname:data.fullname,
+      email:data.email,
+      password:data.password,
+    }
+    await axios.post("http://localhost:3005/user/signup", userInfo)
+    .then((res)=>{
+      console.log(res.data)
+      if(res.data){
+        toast.success("Signup Successful");
+        navigate(from, {replace: true});
+        // to save data in local storage of browser so we can use it in frontend part to show exclusive course only signup emails
+        localStorage.setItem("Users", JSON.stringify(res.data.user)); // without json.stringify it will show object, object in local storage and res.data.[user] because I just want user name and ID not message, without it there was showing extra message
+        // Update auth state
+        setAuthUser(res.data.user);
+
+      } 
+
+      //errors 
+    }).catch((err)=>{
+      if (err.response){
+        console.log(err);
+        toast.error("Error: " + err.response.data.message);
+      }
+    })
+  }
   return (
     <>
       <div className="flex h-screen items-center justify-center ">
@@ -24,7 +59,7 @@ function Signup() {
                 ✕
               </Link>
 
-              <h3 className="font-bold text-lg">Signup</h3>
+              <h3 className="font-bold text-lg">Signup to see <span className="text-pink-500"> all available Courses</span></h3>
               {/* name   */}
               <div className="mt-4 space-y-2">
                 <span> Name </span>
@@ -34,10 +69,10 @@ function Signup() {
                   type="text"
                   placeholder="Enter your name here"
                   className="w-80 px-3 py-1 border rounded-md outline-none"
-                  {...register("name", { required: true })}
+                  {...register("fullname", { required: true })}
                 />
                 <br />
-                {errors.name && (
+                {errors.fullname && (
                   <span className="text-sm text-red-500 ">
                     This field is required
                   </span>
@@ -82,9 +117,10 @@ function Signup() {
                 <button className="bg-pink-500 text-white rounded-md px-3 py-1 hover:bg-pink-700 duration-200 ">
                   Signup
                 </button>
-                <p className="text-xl">
+                {/* <p className="text-xl">
                   Have an account? {""}
                   <button
+                    type="button"
                     className="underline text-blue-500 cursor-pointer "
                     onClick={() =>
                       document.getElementById("my_modal_3").showModal()
@@ -94,7 +130,7 @@ function Signup() {
                   </button>{" "}
                   {""}
                   <Login />
-                </p>
+                </p> */}
               </div>
             </form>
           </div>
