@@ -23,9 +23,5 @@
       "src": "/(.*)",
       "dest": "Frontend/index.html"
     }
-  ],
-  "env": {
-    "PORT": 3005,
-    "MongogDBURI": "${MongogDBURI}"
-  }
+  ]
 }

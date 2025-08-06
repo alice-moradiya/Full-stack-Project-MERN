@@ -18,7 +18,7 @@ export const sendContactEmail = async (req, res) => {
         console.log("Subject:", `Contact Form: ${subject}`);
         console.log("Message:", message);
         
-        // TODO: Uncomment below for actual email sending
+        // TODO: below for email sending
         // const transporter = nodemailer.createTransporter({
         //     service: 'gmail',
         //     auth: {

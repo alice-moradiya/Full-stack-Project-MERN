@@ -6,42 +6,33 @@ import userRoute from "./route/user.route.js";
 import contactRoute from "./route/contact.route.js";
 import cors from "cors";
 
- 
-const app = express();
-
-app.use(cors());
-app.use(express.json());
-
+// Load ENV
 dotenv.config();
 dotenv.config({ path: './email.env' });
 
-const PORT = process.env.PORT || 3005
+const app = express();
+app.use(cors());
+app.use(express.json());
+
 const URI = process.env.MongogDBURI;
-console.log("This is URI: ", URI);
 
-// Connect to mongoDB
-try{
+let cached = global.mongoose || { conn: null };
 
-mongoose.connect(URI, {useNewUrlParser: true, useUnifiedTopology: true}); // both true cond just for local server not for atlas
-console.log("Connected to MongoDB");
-
-}catch(error){
-    console.log("Error: ", error)
-
+async function connectToDB() {
+  if (cached.conn) return cached.conn;
+  const conn = await mongoose.connect(URI);
+  cached.conn = conn;
+  global.mongoose = cached;
+  return conn;
 }
 
-
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-
-
-// defining route
-
+// Routes
 app.use("/book", bookRoute);
 app.use("/user", userRoute);
 app.use("/contact", contactRoute);
 
-app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`)
-})
+// Vercel API-compatible handler
+export default async function handler(req, res) {
+  await connectToDB();
+  return app(req, res);
+}
