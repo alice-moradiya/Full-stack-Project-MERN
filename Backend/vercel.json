@@ -23,8 +23,5 @@
       "src": "/$", 
       "dest": "index.js" 
     }
-  ],
-  "env": {
-    "MongogDBURI": "@MongogDBURI"
-  }
+  ]
 } 
