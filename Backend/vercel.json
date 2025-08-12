@@ -5,6 +5,7 @@
       "src": "index.js",
       "use": "@vercel/node",
       "config": {
+        "bundle": false,
         "includeFiles": [
           "node_modules/mongoose/**/*",
           "node_modules/mongodb/**/*",
