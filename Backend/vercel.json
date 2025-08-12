@@ -3,25 +3,26 @@
   "builds": [
     {
       "src": "index.js",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": [
+          "node_modules/mongoose/**/*",
+          "node_modules/mongodb/**/*",
+          "node_modules/bson/**/*",
+          "node_modules/kareem/**/*",
+          "node_modules/mpath/**/*",
+          "node_modules/mquery/**/*"
+        ]
+      }
     }
   ],
   "routes": [
-    {
-      "src": "/book/(.*)",
-      "dest": "index.js"
-    },
-    {
-      "src": "/user/(.*)",
-      "dest": "index.js"
-    },
-    {
-      "src": "/contact/(.*)",
-      "dest": "index.js"
-    },
-    { 
-      "src": "/$", 
-      "dest": "index.js" 
-    }
+    { "src": "^/book$", "dest": "index.js" },
+    { "src": "^/user$", "dest": "index.js" },
+    { "src": "^/contact$", "dest": "index.js" },
+    { "src": "/book/(.*)", "dest": "index.js" },
+    { "src": "/user/(.*)", "dest": "index.js" },
+    { "src": "/contact/(.*)", "dest": "index.js" },
+    { "src": "/$", "dest": "index.js" }
   ]
-} 
+}
