@@ -1,3 +1,4 @@
+// Backend/index.js
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
@@ -6,42 +7,29 @@ import userRoute from "./route/user.route.js";
 import contactRoute from "./route/contact.route.js";
 import cors from "cors";
 
- 
-const app = express();
+dotenv.config();
+dotenv.config({ path: "./email.env" });
 
-app.use(cors());
+const app = express();
+app.use(cors({ origin: process.env.CORS_ORIGIN || true })); // allow  frontend domain in prod
 app.use(express.json());
 
-dotenv.config();
-dotenv.config({ path: './email.env' });
+const URI = process.env.MongogDBURI; 
 
-const PORT = process.env.PORT || 3005
-const URI = process.env.MongogDBURI;
-console.log("This is URI: ", URI);
-
-// Connect to mongoDB
-try{
-
-mongoose.connect(URI, {useNewUrlParser: true, useUnifiedTopology: true}); // both true cond just for local server not for atlas
-console.log("Connected to MongoDB");
-
-}catch(error){
-    console.log("Error: ", error)
-
+let isConnected = false;
+async function connectToDB() {
+  if (isConnected) return;
+  await mongoose.connect(URI);
+  isConnected = true;
+  console.log("Connected to MongoDB");
 }
 
-
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-
-
-// defining route
-
+app.get("/", (_, res) => res.send("OK"));
 app.use("/book", bookRoute);
 app.use("/user", userRoute);
 app.use("/contact", contactRoute);
 
-app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`)
-})
+export default async function handler(req, res) {
+  await connectToDB();
+  return app(req, res);
+}

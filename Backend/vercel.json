@@ -2,30 +2,30 @@
   "version": 2,
   "builds": [
     {
-      "src": "Backend/index.js",
+      "src": "index.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/book/(.*)",
-      "dest": "Backend/index.js"
+      "dest": "index.js"
     },
     {
       "src": "/user/(.*)",
-      "dest": "Backend/index.js"
+      "dest": "index.js"
     },
     {
       "src": "/contact/(.*)",
-      "dest": "Backend/index.js"
+      "dest": "index.js"
     },
-    {
-      "src": "/(.*)",
-      "dest": "Frontend/index.html"
+    { 
+      "src": "/$", 
+      "dest": "index.js" 
     }
   ],
   "env": {
     "PORT": "3005",
     "MongogDBURI": "${MongogDBURI}"
   }
-}
+} 
