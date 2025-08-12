@@ -25,7 +25,6 @@
     }
   ],
   "env": {
-    "PORT": "3005",
-    "MongogDBURI": "${MongogDBURI}"
+    "MongogDBURI": "@MongogDBURI"
   }
 } 
